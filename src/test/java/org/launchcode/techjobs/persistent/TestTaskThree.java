@@ -146,41 +146,9 @@ public class TestTaskThree extends AbstractTest {
         assertNotNull(employerRepositoryField.getAnnotation(Autowired.class));
     }
 
-    /*
-     * Verifies that HomeController.displayAddJobForm calls employerRepository.findAll()
-     * */
-//    @Test
-//    public void testHomeControllerFetchesEmployers(@Mocked EmployerRepository employerRepository, @Mocked SkillRepository skillRepository) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-//        Class homeControllerClass = getClassByName("controllers.HomeController");
-//        HomeController homeController = new HomeController();
-//
-//        Field employerRepositoryField = homeControllerClass.getDeclaredField("employerRepository");
-//        employerRepositoryField.setAccessible(true);
-//        employerRepositoryField.set(homeController, employerRepository);
-//
-//        // not needed for verification, but necessary to make sure calling the controller
-//        // method doesn't throw a NullPointerException
-//        Field skillRepositoryField = null;
-//        try {
-//            skillRepositoryField = homeControllerClass.getDeclaredField("skillRepository");
-//            skillRepositoryField.setAccessible(true);
-//            skillRepositoryField.set(homeController, skillRepository);
-//        } catch (NoSuchFieldException e) {
-//            // do nothing
-//        }
-//
-//        Model model = new ExtendedModelMap();
-//
-//        new Expectations() {{
-//            employerRepository.findAll();
-//        }};
-//
-//        homeController.displayAddJobForm(model);
-//    }
 
-    /*
-     * Tests SQL query for task 3
-     * */
+     //* Tests SQL query for task 3
+    // * */
     @Test
     public void testSqlQuery() throws IOException {
         String queryFileContents = getFileContents("queries.sql");

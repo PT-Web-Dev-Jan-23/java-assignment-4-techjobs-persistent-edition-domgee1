@@ -17,21 +17,17 @@ import java.util.Optional;
 public class EmployerController {
     @Autowired
     private EmployerRepository employerRepository;
+    @GetMapping("")
+    public String index(Model model) {
+        model.addAttribute("employers", employerRepository.findAll());
+        return "employers/index";
+    }
+
 
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
         model.addAttribute(new Employer());
         return "employers/add";
-    }
-    @PostMapping("/employers/add")
-    public String processAddEmployerForm(@Valid Employer employer, BindingResult result) {
-        if (result.hasErrors()) {
-            return "employers/add";
-        }
-
-        employerRepository.save(employer);
-
-        return "redirect:/employers";
     }
 
 
@@ -42,7 +38,7 @@ public class EmployerController {
         if (errors.hasErrors()) {
             return "employers/add";
         }
-
+employerRepository.save(newEmployer);
         return "redirect:";
     }
 
